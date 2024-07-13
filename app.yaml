@@ -1,0 +1,35 @@
+# PHPのバージョンは8.1
+runtime: php81
+# スタンダード環境を指定
+env: standard
+instance_class: F1
+
+runtime_config:
+  document_root: public
+  php_version: 8.1
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 1
+  min_idle_instances: 1
+  max_idle_instances: 1
+  max_concurrent_requests: 80
+
+env_variables:
+  # ログのエラーが出ないようにするための記述
+  LOG_CHANNEL: stderr
+  # キャッシュのエラーが出ないようにするための記述
+  CACHE_DIRECTORY: /tmp/laravel/cache
+  SESSION_DRIVER: cookie
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  APP_LOG: errorlog
+  DB_DATABASE: laravel
+  DB_USERNAME: laravel-dev
+  DB_PASSWORD: yOv%Qy@QiMN?{2<B
+  DB_SOCKET: "/cloudsql/toy-box-play-ground:us-central1:laravel-dev"
+  DB_HOST: 34.46.109.91
+
+# デプロイ時のcomposerのバージョン
+build_env_variables:
+  GOOGLE_COMPOSER_VERSION: 2.2.1
