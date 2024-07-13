@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/book-add','App\Http\Controllers\BookAddController@index')->name('book-add.index');
+
+Route::post('/book-add', 'App\Http\Controllers\BookAddController@store')->name('book-add.store');
+
+Route::get('/','App\Http\Controllers\BookListController@index')->name('book-list.index');
